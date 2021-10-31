@@ -51,7 +51,7 @@ void normaliseFitness(vector<double>& fit) {
 }
 //pool selection for the next generation
 vector<int> pickOne(vector<vector<int>>& list, vector<double>& probabilities) {
-    double random = ((double)rand() + 1.0) / (double)(RAND_MAX + 2);
+    double random = ((double)rand() + 1.0) / (double)(RAND_MAX);
     int index = 0;
     while (random > 0) {
         random = random - probabilities[index];
@@ -64,7 +64,7 @@ vector<int> pickOne(vector<vector<int>>& list, vector<double>& probabilities) {
 //mutation for next generation
 void mutate(vector<int>& order, double mutationrate, int type=1) {
     for (int i = 0, s = (int)order.size(); i < s; i++) {
-		double random = ((double)rand() + 1.0) / (double)(RAND_MAX + 2);
+		double random = ((double)rand() + 1.0) / (double)(RAND_MAX);
         if (random < mutationrate) {
 			int a = rand() % (int)order.size();
 			int b = rand() % (int)order.size();
